@@ -1,12 +1,25 @@
 <html>
  
 <body>
-  <h1>Dany Aracena</h1>
+  <h1 id="rememberme"></h1>
   <p>Welcome to my website!</p>
+
   <img src="https://content.codecademy.com/articles/github-pages-via-web-app/happy-ice-cream.gif" />
  <script>
-   alert("Hola como estas?");
+   const currentVisit= document.getElementById("rememberme");
+    const rememberme = localStorage.getItem("myName");
+      if(rememberme){
+       
+        currentVisit.innerHTML = "Hello " + rememberme + "! Good to see you here again!  How are you today?";
+      }
+     if(!rememberme){
+        let currentName=prompt("Please enter your name =>","");
+        if (currentName != null) {
+            localStorage.setItem("myName",currentName);
+            currentVisit.innerHTML =
+            "Hello " + currentName + "! How are you today?";
+        }
+     }
  </script>
 </body>
- 
 </html>
