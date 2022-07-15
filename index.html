@@ -1,25 +1,48 @@
+<!Document html>
 <html>
- 
-<body>
-  <h1 id="rememberme"></h1>
-  <p>Welcome to my website!</p>
+<head>
+</head>
+<input id="product"/> <br>
+<input id="quantity"/><br>
+<button id="addItem">Add</button>
+<ul id="listItem">
+</ul>
 
-  <img src="https://content.codecademy.com/articles/github-pages-via-web-app/happy-ice-cream.gif" />
- <script>
-   const currentVisit= document.getElementById("rememberme");
-    const rememberme = localStorage.getItem("myName");
-      if(rememberme){
-       
-        currentVisit.innerHTML = "Hello " + rememberme + "! Good to see you here again!  How are you today?";
-      }
-     if(!rememberme){
-        let currentName=prompt("Please enter your name =>","");
-        if (currentName != null) {
-            localStorage.setItem("myName",currentName);
-            currentVisit.innerHTML =
-            "Hello " + currentName + "! How are you today?";
-        }
-     }
- </script>
-</body>
+
+<script>
+const product=
+document.getElementById("product");
+
+const quantity=getElementById("quantity");
+
+const button=document.getElementById("addItem");
+const element=(nom)=>document.createElement(nom);
+
+const addItemInList=(product)=>{
+    let li=element("li");
+    li.textContent=product.name+' '+product.quantity;
+    
+    listItem.append(li);
+}
+
+window.addEventListener("load",()=>{
+    alert("hola");
+});
+
+button.addEventListener("click",(e)=>{
+    e.preventDefault();
+    TRANSATION="buyer"
+   var product={name:product.value,quantity:quantity.value};
+ var  buyers=[];
+ 
+if(localStorage.getItem(TRANSATION)){  
+buyers=JSON.parse(localStorage.getItem(TRANSATION));
+ }
+ buyers.push(product);
+ 
+ 
+ 
+  localStorage.setItem(TRANSATION,JSON.stringify(buyers));
+});
+</script>
 </html>
